@@ -1,27 +1,27 @@
 <?php
 
-namespace Ibram\Core\SandboxBundle\Controller;
+namespace SanSIS\Core\SandboxBundle\Controller;
 
-use \Ibram\Core\BaseBundle\Controller\ControllerCrudAbstract;
+use \SanSIS\Core\BaseBundle\Controller\ControllerCrudAbstract;
 
 class AngularTestController extends ControllerCrudAbstract
 {
-    protected $service = 'Ibram_core_sandbox.cadastrante';
+    protected $service = 'SanSIS_core_sandbox.cadastrante';
 
-    protected $indexView = 'IbramCoreSandboxBundle:angularTest.html.twig';
+    protected $indexView = 'SanSISCoreSandboxBundle:angularTest.html.twig';
 
-    protected $createView = 'IbramCoreSandboxBundle:Default:form.html.twig';
-    protected $createRoute = 'Ibram_core_sandbox_create';
+    protected $createView = 'SanSISCoreSandboxBundle:Default:form.html.twig';
+    protected $createRoute = 'SanSIS_core_sandbox_create';
 
-    protected $editView = 'IbramCoreSandboxBundle:Default:form.html.twig';
-    protected $editRoute = 'Ibram_core_sandbox_edit';
+    protected $editView = 'SanSISCoreSandboxBundle:Default:form.html.twig';
+    protected $editRoute = 'SanSIS_core_sandbox_edit';
 
-    protected $saveSuccessRoute = 'Ibram_core_sandbox_homepage';
+    protected $saveSuccessRoute = 'SanSIS_core_sandbox_homepage';
 
-    protected $deleteRoute = 'Ibram_core_sandbox_delete';
+    protected $deleteRoute = 'SanSIS_core_sandbox_delete';
 
-    protected $viewView = 'IbramCoreSandboxBundle:Default:formView.html.twig';
-    protected $viewRoute = 'Ibram_core_sandbox_view';
+    protected $viewView = 'SanSISCoreSandboxBundle:Default:formView.html.twig';
+    protected $viewRoute = 'SanSIS_core_sandbox_view';
 
     /**
      * Sobrescrito apenas para forçar o uso de uma conexão diferente da aplicação pela service
@@ -41,7 +41,7 @@ class AngularTestController extends ControllerCrudAbstract
         $result = array('nome' => 'João Gabriel', 'Data' => '10/05/2013', 'Tipo' => 'Biologia');
 //        $teste = 'ola mundo';
 
-        return $this->render('IbramCoreSandboxBundle:Default:angularTest.html.twig', $result);
+        return $this->render('SanSISCoreSandboxBundle:Default:angularTest.html.twig', $result);
     }
 
 

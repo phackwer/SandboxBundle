@@ -1,6 +1,6 @@
 <?php
-namespace Ibram\Core\SandboxBundle\EntityRepository;
+namespace SanSIS\Core\SandboxBundle\EntityRepository;
 
-abstract class AbstractBase extends \Ibram\Core\BaseBundle\EntityRepository\AbstractBase
+abstract class AbstractBase extends \SanSIS\Core\BaseBundle\EntityRepository\AbstractBase
 {
 }

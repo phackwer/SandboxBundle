@@ -1,4 +1,4 @@
-{% extends "IbramCoreSandboxBundle::base.html.twig" %}
+{% extends "SanSISCoreSandboxBundle::base.html.twig" %}
 {% block body %}
 
 <style>
@@ -18,7 +18,7 @@
 </style>
 
 
-<form action="{{  path('ibram_core_sandbox_save') }}" method="post"
+<form action="{{  path('sansis_core_sandbox_save') }}" method="post"
 	id="j_cadastroForm">
 	<p>
 		<strong class="title">Dados do Usuário</strong>
@@ -60,7 +60,7 @@
 			
 			<div class="pull-right">
 				<a href="#" id="doLoginBt" class="btn btn-primary">Salvar</a>
-				<a href="{{ path('ibram_core_sandbox_homepage') }}" id="voltarBt" class="btn">Cancelar</a>
+				<a href="{{ path('sansis_core_sandbox_homepage') }}" id="voltarBt" class="btn">Cancelar</a>
 			</div>
 		</div>
 	</div>

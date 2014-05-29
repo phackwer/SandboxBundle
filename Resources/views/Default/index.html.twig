@@ -1,4 +1,4 @@
-{% extends "IbramCoreSandboxBundle::base.html.twig" %}
+{% extends "SanSISCoreSandboxBundle::base.html.twig" %}
 
 {% block body %}
 
@@ -39,7 +39,7 @@ label {
 
 		$("#grid").jqGrid({
 
-			url:'{{ path('ibram_core_sandbox_search') }}',
+			url:'{{ path('sansis_core_sandbox_search') }}',
 			datatype: "json",
 			colNames:[
 						'Nome',
@@ -118,7 +118,7 @@ label {
 	        "Sim": function() {
 		        $.ajax({
 		        	type: "POST",
-		        	url: "{{ path('ibram_core_sandbox_delete') }}",
+		        	url: "{{ path('sansis_core_sandbox_delete') }}",
 		        	data: { id: id},
 		        	dataType: 'json'
 		        })

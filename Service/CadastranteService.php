@@ -1,16 +1,16 @@
 <?php
-namespace Ibram\Core\SandboxBundle\Service;
+namespace SanSIS\Core\SandboxBundle\Service;
 
-use Ibram\Core\BaseBundle\ServiceLayer\EntityServiceAbstract;
+use SanSIS\Core\BaseBundle\ServiceLayer\EntityServiceAbstract;
 
 class CadastranteService extends EntityServiceAbstract
 {
-    protected $rootEntityName = '\Ibram\Core\SandboxBundle\Entity\Cadastrante';
+    protected $rootEntityName = '\SanSIS\Core\SandboxBundle\Entity\Cadastrante';
     
     protected $rootEntityIdName = 'coSeqDadocadastrante';
     
     /**
-     * @var \Ibram\Core\SandboxBundle\Entity\Cadastrante
+     * @var \SanSIS\Core\SandboxBundle\Entity\Cadastrante
      */
     protected $rootEntity;
 }

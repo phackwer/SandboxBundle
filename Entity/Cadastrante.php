@@ -1,6 +1,6 @@
 <?php
 
-namespace Ibram\Core\SandboxBundle\Entity;
+namespace SanSIS\Core\SandboxBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,10 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="CADASTRANTE")
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="\Ibram\Core\SandboxBundle\EntityRepository\Cadastrante")
+ * @ORM\Entity(repositoryClass="\SanSIS\Core\SandboxBundle\EntityRepository\Cadastrante")
 
  */
-class Cadastrante extends \Ibram\Core\SandboxBundle\Entity\AbstractBase
+class Cadastrante extends \SanSIS\Core\SandboxBundle\Entity\AbstractBase
 {
     /**
      * @var integer

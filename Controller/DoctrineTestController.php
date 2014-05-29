@@ -1,27 +1,27 @@
 <?php
 
-namespace Ibram\Core\SandboxBundle\Controller;
+namespace SanSIS\Core\SandboxBundle\Controller;
 
-use \Ibram\Core\BaseBundle\Controller\ControllerCrudAbstract;
+use \SanSIS\Core\BaseBundle\Controller\ControllerCrudAbstract;
 
 class DoctrineTestController extends ControllerCrudAbstract
 {
-    protected $service          = 'Ibram_core_sandbox.cadastrante';
+    protected $service          = 'SanSIS_core_sandbox.cadastrante';
 
-    protected $indexView        = 'IbramCoreSandboxBundle:Default:index.html.twig';
+    protected $indexView        = 'SanSISCoreSandboxBundle:Default:index.html.twig';
 
-    protected $createView       = 'IbramCoreSandboxBundle:Default:form.html.twig';
-    protected $createRoute      = 'Ibram_core_sandbox_create';
+    protected $createView       = 'SanSISCoreSandboxBundle:Default:form.html.twig';
+    protected $createRoute      = 'SanSIS_core_sandbox_create';
 
-    protected $editView         = 'IbramCoreSandboxBundle:Default:form.html.twig';
-    protected $editRoute        = 'Ibram_core_sandbox_edit';
+    protected $editView         = 'SanSISCoreSandboxBundle:Default:form.html.twig';
+    protected $editRoute        = 'SanSIS_core_sandbox_edit';
 
-    protected $saveSuccessRoute = 'Ibram_core_sandbox_homepage';
+    protected $saveSuccessRoute = 'SanSIS_core_sandbox_homepage';
 
-    protected $deleteRoute      = 'Ibram_core_sandbox_delete';
+    protected $deleteRoute      = 'SanSIS_core_sandbox_delete';
 
-    protected $viewView         = 'IbramCoreSandboxBundle:Default:formView.html.twig';
-    protected $viewRoute        = 'Ibram_core_sandbox_view';
+    protected $viewView         = 'SanSISCoreSandboxBundle:Default:formView.html.twig';
+    protected $viewRoute        = 'SanSIS_core_sandbox_view';
 
     /**
      * Sobrescrito apenas para forçar o uso de uma conexão diferente da aplicação pela service
@@ -38,10 +38,10 @@ class DoctrineTestController extends ControllerCrudAbstract
 
     public function indexAction(){
 
-        /** @var \Ibram\Core\SandboxBundle\Service\CadastranteService $srv */
+        /** @var \SanSIS\Core\SandboxBundle\Service\CadastranteService $srv */
         $srv = $this->getService();
 
-        $entity = $srv->getEntityManager()->getRepository('Ibram\Sgp\CoreBundle\Entity\PessoaFisica')->findAll();
+        $entity = $srv->getEntityManager()->getRepository('SanSIS\Sgp\CoreBundle\Entity\PessoaFisica')->findAll();
 
         echo '<pre>'; print_r($entity);die();
     }

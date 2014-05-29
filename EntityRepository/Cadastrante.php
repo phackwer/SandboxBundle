@@ -1,5 +1,5 @@
 <?php
-namespace Ibram\Core\SandboxBundle\EntityRepository;
+namespace SanSIS\Core\SandboxBundle\EntityRepository;
 
 class Cadastrante extends AbstractBase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ibram\Core\SandboxBundle\Tests\Controller;
+namespace SanSIS\Core\SandboxBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

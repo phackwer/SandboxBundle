@@ -10,7 +10,7 @@ appBase.controller('TestCtrl', ['$scope', '$http',
 
             //Este é um exemplo de requição ajax do tipo post,
             //O comando Routing.generate retorna a url do Symfony e passa um parametro
-            $http.post(Routing.generate('Ibram_core_sandbox_angular_get_json_exemplo'), {foo: 'bar'})
+            $http.post(Routing.generate('SanSIS_core_sandbox_angular_get_json_exemplo'), {foo: 'bar'})
                 .success(function (data, status) {
                     $scope.data = data;
                 }).error(function (data, status) {

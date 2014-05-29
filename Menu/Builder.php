@@ -1,6 +1,6 @@
 <?php
 
-namespace Ibram\Core\SandboxBundle\Menu;
+namespace SanSIS\Core\SandboxBundle\Menu;
 
 use Knp\Menu\Silex\RouterAwareFactory;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -16,11 +16,11 @@ class Builder
                 'uri' => '#'
             ));
 		$dropdown->addChild('Consultar Cadastro', array(
-				'route' 		=> 'ibram_core_sandbox_homepage',
+				'route' 		=> 'sansis_core_sandbox_homepage',
 				'routeAbsolute'	=> false
 		));
 		$dropdown->addChild('Criar Novo Cadastro', array(
-				'route' 		=> 'ibram_core_sandbox_create',
+				'route' 		=> 'sansis_core_sandbox_create',
 				'routeAbsolute'	=> false
 		));
     		
