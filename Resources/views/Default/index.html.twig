@@ -1,1 +1,151 @@
-Hello {{ name }}!
+{% extends "IbramCoreSandboxBundle::base.html.twig" %}
+
+{% block body %}
+
+<style>
+label {
+	margin-right: 20px;
+	margin-top: 5px;
+}
+</style>
+
+<strong class="title">Pesquisar Cadastro</strong>
+<div class="box_borda">
+		<ul>
+			<li class="span9">
+                <label for="nome">Nome:</label>
+                <input id="nome" type="text" name="Nome" class="span6"></li>
+            <li class="span2 pull-right">
+                <label>&nbsp;</label>
+                <a href="#" id="searchBt" class="btn btn-primary">Pesquisar</a>
+                <a href="#" id="clearBt" class="btn">Limpar</a>
+            </li>
+		</ul>
+
+		<div class="box span11 marginBottom">
+			<table id="grid"></table>
+			<div id="pager"></div>
+		</div>
+</div>
+
+<div id="dialog-confirm" title="Remover registro?" style="display: none;">
+  <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>Deseja remover esse cadastro?</p>
+</div>
+
+<script>
+
+
+	$(document).ready(function() {
+
+		$("#grid").jqGrid({
+
+			url:'{{ path('ibram_core_sandbox_search') }}',
+			datatype: "json",
+			colNames:[
+						'Nome',
+						'E-mail' ,
+					'Ação'
+			],
+			colModel:[  {name:'noCadastrante',index:'g.noCadastrante', width:100},
+			            {name:'dsEnderecowebCadastrante',index:'g.dsEnderecowebCadastrante', width:50},
+						{name:'Acao',index:'Acao', width:20, align:"center"} 
+			],
+			 scrollOffset: 0,
+             forceFit:true,
+             hidegrid: false,
+             height: '254',
+             width: '1050',
+             pager: '#pager',
+             viewrecords: true,
+             sortname: 'g.noCadastrante',
+             sortorder: "asc",
+             rowNum: 11,
+             loadComplete: function() {
+   			  if ($(this).getGridParam("records")==0)
+   			  {
+   				$( "#dialog-msg" ).dialog({
+		        	resizable: false,
+        		    height:140,
+        		    modal: true,
+        		    buttons: {
+	        		      "Fechar": function() {
+        		          $( this ).dialog( "close" );
+        		        }
+        		      }}).html('Nenhum registro encontrado com estes parâmetros.');
+   			  }
+   			}
+		 });
+
+		$("#searchBt").click( function ()
+        {
+
+            $('#grid').jqGrid('clearGridData');
+
+            $('#grid').jqGrid('setGridParam', { postData : {
+                'noCadastrante': 			$("#nome").val()
+              }
+			}).trigger("reloadGrid");
+
+       });
+
+		$("#clearBt").click( function ()
+		{
+			$("#nome").val('');
+			$("#cpf").val('');
+			$("#passaporte").val('')
+
+            $('#grid').jqGrid('clearGridData');
+
+            $('#grid').jqGrid('setGridParam', { postData : {
+								                        nome: 			$("#nome").val(),
+								                        cpf:  			$("#cpf").val(),
+								                        passaporte: 	$("#passaporte").val()
+								              }
+			}).trigger("reloadGrid");
+
+       });
+
+
+
+	});
+
+	function confirmarRemocao(id) {
+	    $( "#dialog-confirm" ).dialog({
+	      resizable: false,
+	      height:140,
+	      modal: true,
+	      buttons: {
+	        "Sim": function() {
+		        $.ajax({
+		        	type: "POST",
+		        	url: "{{ path('ibram_core_sandbox_delete') }}",
+		        	data: { id: id},
+		        	dataType: 'json'
+		        })
+		        .success(function() {
+		        	$("#searchBt").trigger('click');
+		        	$( "#dialog-msg" ).dialog({
+				        	resizable: false,
+		        		    height:140,
+		        		    modal: true,
+		        		    buttons: {
+			        		      "Fechar": function() {
+		        		          $( this ).dialog( "close" );
+		        		        }
+		        		      }}).html('Item removido com sucesso');
+		            $( this ).dialog( "close" );
+	            });
+		        $( this ).dialog( "close" );
+	        },
+	        "Não": function() {
+	          $( this ).dialog( "close" );
+	        }
+	      }
+	    });
+	  }
+
+	</script>
+
+{% endblock %}
+
+

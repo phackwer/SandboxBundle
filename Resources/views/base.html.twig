@@ -1,0 +1,13 @@
+{% extends "IbramCoreBaseBundle::base.html.twig" %}
+
+{% block title %}Sandbox - Módulo de aprendizado{% endblock %}
+
+{% block sigla_sistema %}SBox{% endblock %}
+{% block descricao_sistema %}Bundle de Exemplo de Crud{% endblock %}
+
+
+{% block page_menu %}{{ knp_menu_render('IbramCoreSandboxBundle:Builder:menu', {'nav_type': 'navbar', 'template':'IbramCoreBaseBundle:menu:ibram_menu.html.twig'}) }}{% endblock %}
+
+{% block body %}
+    Corpo da página
+{% endblock %}

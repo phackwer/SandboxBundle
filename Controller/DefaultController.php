@@ -1,13 +1,38 @@
 <?php
 
-namespace SanSIS\Core\SandboxBundle\Controller;
+namespace Ibram\Core\SandboxBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use \Ibram\Core\BaseBundle\Controller\ControllerCrudAbstract;
 
-class DefaultController extends Controller
+class DefaultController extends ControllerCrudAbstract
 {
-    public function indexAction($name)
+    protected $service          = 'Ibram_core_sandbox.cadastrante';
+    
+    protected $indexView        = 'IbramCoreSandboxBundle:Default:index.html.twig';
+
+    protected $createView       = 'IbramCoreSandboxBundle:Default:form.html.twig';
+    protected $createRoute      = 'Ibram_core_sandbox_create';
+
+    protected $editView         = 'IbramCoreSandboxBundle:Default:form.html.twig';
+    protected $editRoute        = 'Ibram_core_sandbox_edit';
+    
+    protected $saveSuccessRoute = 'Ibram_core_sandbox_homepage';
+    
+    protected $deleteRoute      = 'Ibram_core_sandbox_delete';
+    
+    protected $viewView         = 'IbramCoreSandboxBundle:Default:formView.html.twig';
+    protected $viewRoute        = 'Ibram_core_sandbox_view';
+    
+    /**
+     * Sobrescrito apenas para forçar o uso de uma conexão diferente da aplicação pela service
+     *
+     * @return object
+     */
+    protected function getService()
     {
-        return $this->render('SanSISCoreSandboxBundle:Default:index.html.twig', array('name' => $name));
+        $srv = $this->get($this->service);
+        $srv->setEntityManager($this->get('doctrine')->getManager('sandbox'));
+       
+        return $srv;
     }
 }

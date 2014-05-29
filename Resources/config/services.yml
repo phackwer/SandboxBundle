@@ -1,7 +1,7 @@
 parameters:
-#    san_sis_core_sandbox.example.class: SanSIS\Core\SandboxBundle\Example
+    ibram_core_sandbox.cadastrante.class: Ibram\Core\SandboxBundle\Service\CadastranteService
 
 services:
-#    san_sis_core_sandbox.example:
-#        class: %san_sis_core_sandbox.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+   ibram_core_sandbox.cadastrante:
+        class: %ibram_core_sandbox.cadastrante.class%
+        arguments: ["@doctrine.orm.entity_manager", "sandbox"]

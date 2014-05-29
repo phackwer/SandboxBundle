@@ -1,3 +1,41 @@
-san_sis_core_sandbox_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SanSISCoreSandboxBundle:Default:index }
+ibram_core_sandbox_homepage:
+    pattern:  /
+    defaults: { _controller: IbramCoreSandboxBundle:Default:index }
+    
+ibram_core_sandbox_search:
+    pattern:  /search
+    defaults: { _controller: IbramCoreSandboxBundle:Default:search }
+    
+ibram_core_sandbox_create:
+    pattern: /create
+    defaults: { _controller: IbramCoreSandboxBundle:Default:create }
+    
+ibram_core_sandbox_edit:
+    pattern: /edit
+    defaults: { _controller: IbramCoreSandboxBundle:Default:edit }
+    
+ibram_core_sandbox_save:
+    pattern: /save
+    defaults: { _controller: IbramCoreSandboxBundle:Default:save }
+    
+ibram_core_sandbox_view:
+    pattern: /view
+    defaults: { _controller: IbramCoreSandboxBundle:Default:view }
+    
+ibram_core_sandbox_delete:
+    pattern: /delete
+    defaults: { _controller: IbramCoreSandboxBundle:Default:delete }
+
+ibram_core_sandbox_doctrine_test:
+    pattern: /doctrineTest
+    defaults: { _controller: IbramCoreSandboxBundle:DoctrineTest:index }
+
+ibram_core_sandbox_angular_test:
+    pattern: /angularTest
+    defaults: { _controller: IbramCoreSandboxBundle:AngularTest:index }
+
+ibram_core_sandbox_angular_get_json_exemplo:
+    pattern: /angularTest/getJsonExemplo
+    defaults: { _controller: IbramCoreSandboxBundle:AngularTest:getJsonExemplo }
+    options:
+            expose: true
