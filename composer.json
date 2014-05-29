@@ -1,0 +1,25 @@
+{
+	"name" : "sansis/sandboxbundle",
+	"description" : "SanSIS Labs Sandbox Bundle for Symfony development",
+	"type" : "symfony-bundle",
+	"authors" : [{
+			"name" : "Pablo Santiago Sanchez",
+			"email" : "phackwer@gmail.com"
+		}
+	],
+	"keywords" : [
+		"sandbox bundle symfony development"
+	],
+	"license" : "BSD",
+	"autoload" : {
+		"psr-0" : {
+			"SanSIS\\Core\\BaseBundle" : ""
+		}
+	},
+	"target-dir" : "SanSIS/Core/BaseBundle",
+	"extra" : {
+		"branch-alias" : {
+			"dev-master" : "1.0-dev"
+		}
+	}
+}
