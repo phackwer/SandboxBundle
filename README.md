@@ -41,5 +41,5 @@ composer.json:
 ```yml
 san_sis_core_sandbox:
     resource: "@SanSISCoreSandboxBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /sandbox
 ```
