@@ -18,7 +18,7 @@
 composer.json:
 ```json
     [...]
-    "require" : {
+    "require-dev" : {
         [...]
         "sansis/sandboxbundle" : "dev-master"
     },
@@ -34,4 +34,12 @@ composer.json:
 ```php
          //SanSIS Core Labs Sandbox Bundle
          $bundles[] = new SanSIS\Core\SandboxBundle\SanSISCoreSandboxBundle();
+```
+
+## Add to routing.yml
+
+```yml
+san_sis_core_sandbox:
+    resource: "@SanSISCoreSandboxBundle/Resources/config/routing.yml"
+    prefix:   /
 ```
