@@ -16,7 +16,7 @@
             "SanSIS\\Core\\SandboxBundle" : ""
         }
     },
-    "target-dir" : "SanSIS/Core/SandboxBundle"
+    "target-dir" : "SanSIS/Core/SandboxBundle",
     "extra" : {
         "branch-alias" : {
             "dev-master" : "1.0-dev"
