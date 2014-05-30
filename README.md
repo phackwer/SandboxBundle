@@ -43,3 +43,13 @@ san_sis_core_sandbox:
     resource: "@SanSISCoreSandboxBundle/Resources/config/routing.yml"
     prefix:   /sandbox
 ```
+
+## Copy configuration and parameters
+
+Copy the content or the files:
+
+@SanSISCoreSandboxBundle/Resources/config/config_dev.yml 
+@SanSISCoreSandboxBundle/Resources/config/parameters_dev.yml 
+
+into yours
+config_dev.yml and parameters_dev.yml so you can try the bundle

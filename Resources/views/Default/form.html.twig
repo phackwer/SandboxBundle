@@ -3,190 +3,191 @@
 
 <style>
 .validateMsg {
-	width: 100%;
-	clear: both;
-	color: #F00;
-	margin-bottom: 10px;
-	margin-top: -10px;
+    width: 100%;
+    clear: both;
+    color: #F00;
+    margin-bottom: 10px;
+    margin-top: -10px;
 }
 
 .right {
-	margin-right: 20px;
-	margin-top: 5px;
-	text-align: left;
+    margin-right: 20px;
+    margin-top: 5px;
+    text-align: left;
 }
 </style>
 
+<form action="{{  path('sansis_core_sandbox_save') }}" method="post" id="j_cadastroForm">
 
-<form action="{{  path('sansis_core_sandbox_save') }}" method="post"
-	id="j_cadastroForm">
-	<p>
-		<strong class="title">Dados do Usuário</strong>
-	</p>
-	<div class="box_borda">
-		<div class="paddingAll">
-			<ul>
-				<input type="hidden" name="coSeqDadocadastrante" id="coSeqDadocadastrante" value="{{ entityData.coSeqDadocadastrante }}">
-				
-				<li><label class="row span3" for="noCadastrante"> Nome
-						completo: <font color="red"><b>*</b></font>
-				</label> <input type="text" name="noCadastrante" id="noCadastrante"
-					class="span4" value="{{ entityData.noCadastrante }}" required
-					size="150" maxlength="100" /></li>
-				<li><label class="row span3" for="dsEnderecowebCadastrante">
-						E-mail: <font color="red"><b>*</b></font>
-				</label> <input type="text" name="dsEnderecowebCadastrante"
-					id="dsEnderecowebCadastrante" class="span4"
-					value="{{ entityData.dsEnderecowebCadastrante }}" required
-					size="150" /></li>
-				<li><label class="row span3" for="noIdentificadorMaquina">
-						Máquina: <font color="red"><b>*</b></font>
-				</label> <input type="text" name="noIdentificadorMaquina"
-					id="noIdentificadorMaquina" class="span4"
-					value="{{ entityData.noIdentificadorMaquina }}"
-					required /></li>
-				<li><label class="row span3" for="dtInclusao">
-						Data Inclusão: <font color="red"><b>*</b></font>
-				</label> <input type="text" name="dtInclusao"
-					id="dtInclusao" class="span4 date_ddmmyyyy"
-					value="{%  if entityData.dtInclusao is not null  %}{{ entityData.dtInclusao | date('d/m/Y') }}{% endif %}"
-					required /></li>
-				<li>
-					<div class="row span3">
-					<font color="red"><b>* Preenchimento obrigatório</b></font>
-					</div>
-				</li>
-			</ul>
-			
-			<div class="pull-right">
-				<a href="#" id="doLoginBt" class="btn btn-primary">Salvar</a>
-				<a href="{{ path('sansis_core_sandbox_homepage') }}" id="voltarBt" class="btn">Cancelar</a>
-			</div>
-		</div>
-	</div>
+<strong class="title">Dados do Usuário</strong>
+
+<div class="box_borda">
+    <div class="paddingAll">
+        <div class="span11">
+            <ul>
+                <input type="hidden" name="coSeqDadocadastrante" id="coSeqDadocadastrante" value="{{ entityData.coSeqDadocadastrante }}">
+                
+                <li><label class="row span3" for="noCadastrante"> Nome
+                        completo: <font color="red"><b>*</b></font>
+                </label> <input type="text" name="noCadastrante" id="noCadastrante"
+                    class="span4" value="{{ entityData.noCadastrante }}" required
+                    size="150" maxlength="100" /></li>
+                <li><label class="row span3" for="dsEnderecowebCadastrante">
+                        E-mail: <font color="red"><b>*</b></font>
+                </label> <input type="text" name="dsEnderecowebCadastrante"
+                    id="dsEnderecowebCadastrante" class="span4"
+                    value="{{ entityData.dsEnderecowebCadastrante }}" required
+                    size="150" /></li>
+                <li><label class="row span3" for="noIdentificadorMaquina">
+                        Máquina: <font color="red"><b>*</b></font>
+                </label> <input type="text" name="noIdentificadorMaquina"
+                    id="noIdentificadorMaquina" class="span4"
+                    value="{{ entityData.noIdentificadorMaquina }}"
+                    required /></li>
+                <li><label class="row span3" for="dtInclusao">
+                        Data Inclusão: <font color="red"><b>*</b></font>
+                </label> <input type="text" name="dtInclusao"
+                    id="dtInclusao" class="span4 date_ddmmyyyy"
+                    value="{%  if entityData.dtInclusao is not null  %}{{ entityData.dtInclusao | date('d/m/Y') }}{% endif %}"
+                    required /></li>
+                <li>
+                    <div class="row span3">
+                    <font color="red"><b>* Preenchimento obrigatório</b></font>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="pull-right">
+                <a href="#" id="doLoginBt" class="btn btn-primary">Salvar</a>
+                <a href="{{ path('sansis_core_sandbox_homepage') }}" id="voltarBt" class="btn">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 </form>
 
 {% endblock %} {% block javascripts %}
 <script>
 
-	var MessagesLog = new Array();
-	
-	var Messages = new Array();
-	    Messages['erro'] = new Array();
-	    Messages['erro']['001'] = 'Campo Obrigatório';
-	    Messages['erro']['002'] = 'Campo Inválido';
-	    Messages['erro']['003'] = 'CPF Inválido';
-	    Messages['erro']['004'] = 'O E-mail e a confirmação devem ser iguais';
-	    Messages['erro']['005'] = 'E-mail inválido';
-	
-	/**
-	 * Adiciona Mensagem no log de mensagens para validação
-	 */
-	function addMessage(type, code, srcId)
-	{
-		MessagesLog.push({
-			'type' : type,
-			'code' : code, 
-			'id'   : srcId
-			})
-	}
-	
-	function flushMessages()
-	{
-		$('.validateMsg').hide();
-	            msgId = 0;
-		while (msgId < MessagesLog.length){
-	                type = MessagesLog[msgId]['type'];
-	                code = MessagesLog[msgId]['code'];
+    var MessagesLog = new Array();
+    
+    var Messages = new Array();
+        Messages['erro'] = new Array();
+        Messages['erro']['001'] = 'Campo Obrigatório';
+        Messages['erro']['002'] = 'Campo Inválido';
+        Messages['erro']['003'] = 'CPF Inválido';
+        Messages['erro']['004'] = 'O E-mail e a confirmação devem ser iguais';
+        Messages['erro']['005'] = 'E-mail inválido';
+    
+    /**
+     * Adiciona Mensagem no log de mensagens para validação
+     */
+    function addMessage(type, code, srcId)
+    {
+        MessagesLog.push({
+            'type' : type,
+            'code' : code, 
+            'id'   : srcId
+            })
+    }
+    
+    function flushMessages()
+    {
+        $('.validateMsg').hide();
+                msgId = 0;
+        while (msgId < MessagesLog.length){
+                    type = MessagesLog[msgId]['type'];
+                    code = MessagesLog[msgId]['code'];
               $('<div class="validateMsg row"><div class=" span3">&nbsp;</div><div class="span2" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + Messages[type][code] + '</div></div>')
-	                            .insertAfter('#' + MessagesLog[msgId]['id']);
-	                msgId++
-		}
-		
-		MessagesLog = new Array();
-	}
+                                .insertAfter('#' + MessagesLog[msgId]['id']);
+                    msgId++
+        }
+        
+        MessagesLog = new Array();
+    }
 
-	$('#coSeqDadocadastrante').change(function(){
-		if ($('#coSeqDadocadastrante').val() !="")
-			$("#j_cadastroForm").submit();
-		else {
-			$('#noCadastrante').val('');
-			$('#dsEnderecowebCadastrante').val('');
-			$('#noCadastrante').attr('readonly', false);
-			$('#dsEnderecowebCadastrante').attr('readonly', false);
-		}
-	});
+    $('#coSeqDadocadastrante').change(function(){
+        if ($('#coSeqDadocadastrante').val() !="")
+            $("#j_cadastroForm").submit();
+        else {
+            $('#noCadastrante').val('');
+            $('#dsEnderecowebCadastrante').val('');
+            $('#noCadastrante').attr('readonly', false);
+            $('#dsEnderecowebCadastrante').attr('readonly', false);
+        }
+    });
 
-	function validateForm()
-	{
-		retorno = {
-				'status' : true,
-				'msg'    : ''
-				};
+    function validateForm()
+    {
+        retorno = {
+                'status' : true,
+                'msg'    : ''
+                };
 
-		if($('#noCadastrante').val() == "") {
-		    addMessage('erro', '001', 'noCadastrante');
-		    retorno = {
-					'status' : false,
-					'msg'    : 'Formulário com erros'
-					};
-		}
-		
-		if($('#dsEnderecowebCadastrante').val() == "") {
-		    addMessage('erro', '001', 'dsEnderecowebCadastrante');
-		    retorno = {
-					'status' : false,
-					'msg'    : 'Formulário com erros'
-					};
-		} else if (!validateEmail($('#dsEnderecowebCadastrante').val())){
-				addMessage('erro', '005', 'dsEnderecowebCadastrante');
-				retorno = {
-						'status' : false,
-						'msg'    : 'Formulário com erros'
-						};
-			}
-		
-		if($('#noIdentificadorMaquina').val() == "") {
-		    addMessage('erro', '001', 'noIdentificadorMaquina');
-		    retorno = {
-					'status' : false,
-					'msg'    : 'Formulário com erros'
-					};
-		}
-		
-		return retorno;
-	}
+        if($('#noCadastrante').val() == "") {
+            addMessage('erro', '001', 'noCadastrante');
+            retorno = {
+                    'status' : false,
+                    'msg'    : 'Formulário com erros'
+                    };
+        }
+        
+        if($('#dsEnderecowebCadastrante').val() == "") {
+            addMessage('erro', '001', 'dsEnderecowebCadastrante');
+            retorno = {
+                    'status' : false,
+                    'msg'    : 'Formulário com erros'
+                    };
+        } else if (!validateEmail($('#dsEnderecowebCadastrante').val())){
+                addMessage('erro', '005', 'dsEnderecowebCadastrante');
+                retorno = {
+                        'status' : false,
+                        'msg'    : 'Formulário com erros'
+                        };
+            }
+        
+        if($('#noIdentificadorMaquina').val() == "") {
+            addMessage('erro', '001', 'noIdentificadorMaquina');
+            retorno = {
+                    'status' : false,
+                    'msg'    : 'Formulário com erros'
+                    };
+        }
+        
+        return retorno;
+    }
 
-	function validateEmail(email) { 
-	    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	    return re.test(email);
-	}
-	 
-	$("#doLoginBt").click( function (){
-		$('.validateMsg').html('');
-		validate = validateForm();
-	    if (!validate.status) {
-	    	flushMessages();
-	    	$( "#dialog-msg" ).dialog({
-	        	resizable: false,
-    		    height:200,
-    		    width:300,
-    		    modal: true,
-    		    close: false,
-    		    buttons: {
-        		      "Fechar": function() {
-    		          $( this ).dialog( "close" );
-    		        }
-    		      }}).html(validate.msg.replace(/\n/g,'<br />'));
-	    } else {
-		    $("#j_cadastroForm").submit();
-		}
-	});
+    function validateEmail(email) { 
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+     
+    $("#doLoginBt").click( function (){
+        $('.validateMsg').html('');
+        validate = validateForm();
+        if (!validate.status) {
+            flushMessages();
+            $( "#dialog-msg" ).dialog({
+                resizable: false,
+                height:200,
+                width:300,
+                modal: true,
+                close: false,
+                buttons: {
+                      "Fechar": function() {
+                      $( this ).dialog( "close" );
+                    }
+                  }}).html(validate.msg.replace(/\n/g,'<br />'));
+        } else {
+            $("#j_cadastroForm").submit();
+        }
+    });
 
-	$("#clearBt").click( function ()
-	{
-		$("#noCadastrante").val('');
-		$("#dsEnderecowebCadastrante").val('');
-	});
+    $("#clearBt").click( function ()
+    {
+        $("#noCadastrante").val('');
+        $("#dsEnderecowebCadastrante").val('');
+    });
 </script>
 {% endblock %}

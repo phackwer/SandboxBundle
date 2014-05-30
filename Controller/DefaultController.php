@@ -6,22 +6,22 @@ use \SanSIS\Core\BaseBundle\Controller\ControllerCrudAbstract;
 
 class DefaultController extends ControllerCrudAbstract
 {
-    protected $service          = 'SanSIS_core_sandbox.cadastrante';
+    protected $service          = 'sansis_core_sandbox.cadastrante';
     
     protected $indexView        = 'SanSISCoreSandboxBundle:Default:index.html.twig';
 
     protected $createView       = 'SanSISCoreSandboxBundle:Default:form.html.twig';
-    protected $createRoute      = 'SanSIS_core_sandbox_create';
+    protected $createRoute      = 'sansis_core_sandbox_create';
 
     protected $editView         = 'SanSISCoreSandboxBundle:Default:form.html.twig';
-    protected $editRoute        = 'SanSIS_core_sandbox_edit';
+    protected $editRoute        = 'sansis_core_sandbox_edit';
     
-    protected $saveSuccessRoute = 'SanSIS_core_sandbox_homepage';
+    protected $saveSuccessRoute = 'sansis_core_sandbox_homepage';
     
-    protected $deleteRoute      = 'SanSIS_core_sandbox_delete';
+    protected $deleteRoute      = 'sansis_core_sandbox_delete';
     
     protected $viewView         = 'SanSISCoreSandboxBundle:Default:formView.html.twig';
-    protected $viewRoute        = 'SanSIS_core_sandbox_view';
+    protected $viewRoute        = 'sansis_core_sandbox_view';
     
     /**
      * Sobrescrito apenas para forçar o uso de uma conexão diferente da aplicação pela service

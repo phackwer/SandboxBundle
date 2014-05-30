@@ -1,0 +1,6 @@
+parameters:
+    sandbox_database_driver:        pdo_sqlite
+    sandbox_database_path:          sandboxdb
+    sandbox_database_user:          sandbox
+    sandbox_database_password:      demodata
+    sandbox_database_memory:        false
