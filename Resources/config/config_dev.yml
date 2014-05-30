@@ -1,0 +1,18 @@
+imports:
+    - { resource: parameters_dev.yml }
+    
+doctrine:
+    dbal:
+        connections:
+            sandbox:
+                driver:   "%sandbox_database_driver%"
+                path:     "%sandbox_database_path%"
+                user:     "%sandbox_database_user%"
+                password: "%sandbox_database_password%"
+                memory:   "%sandbox_database_memory%"
+    orm:
+        entity_managers:
+                sandbox:
+                    connection:   sandbox
+                    mappings:
+                      SanSISCoreSandboxBundle: ~

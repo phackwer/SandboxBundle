@@ -2,30 +2,31 @@
 
 {% block body %}
 
-<style>
-label {
-	margin-right: 20px;
-	margin-top: 5px;
-}
-</style>
+
+<form action="{{  path('sansis_core_sandbox_save') }}" method="post" id="j_cadastroForm">
 
 <strong class="title">Pesquisar Cadastro</strong>
-<div class="box_borda">
-		<ul>
-			<li class="span9">
-                <label for="nome">Nome:</label>
-                <input id="nome" type="text" name="Nome" class="span6"></li>
-            <li class="span2 pull-right">
-                <label>&nbsp;</label>
-                <a href="#" id="searchBt" class="btn btn-primary">Pesquisar</a>
-                <a href="#" id="clearBt" class="btn">Limpar</a>
-            </li>
-		</ul>
 
-		<div class="box span11 marginBottom">
-			<table id="grid"></table>
-			<div id="pager"></div>
+<div class="box_borda">
+    <div class="paddingAll">
+        <div class="span11">
+			<ul>
+				<li class="span8">
+	                <label for="nome">Nome:</label>
+	                <input id="nome" type="text" name="Nome" class="span8"></li>
+	            <li class="span2 pull-right">
+	                <label>&nbsp;</label>
+	                <a href="#" id="searchBt" class="btn btn-primary">Pesquisar</a>
+	                <a href="#" id="clearBt" class="btn">Limpar</a>
+	            </li>
+			</ul>
+	
+			<div class="box marginBottom">
+				<table id="grid"></table>
+				<div id="pager"></div>
+			</div>
 		</div>
+	</div>
 </div>
 
 <div id="dialog-confirm" title="Remover registro?" style="display: none;">
@@ -54,7 +55,7 @@ label {
              forceFit:true,
              hidegrid: false,
              height: '254',
-             width: '1050',
+             width: '1025',
              pager: '#pager',
              viewrecords: true,
              sortname: 'g.noCadastrante',

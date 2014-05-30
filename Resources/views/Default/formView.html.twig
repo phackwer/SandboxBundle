@@ -3,56 +3,50 @@
 
 <style>
 .validateMsg {
-	width: 100%;
-	clear: both;
-	color: #F00;
-	margin-bottom: 10px;
-	margin-top: -10px;
+    width: 100%;
+    clear: both;
+    color: #F00;
+    margin-bottom: 10px;
+    margin-top: -10px;
 }
 
 .right {
-	margin-right: 20px;
-	margin-top: 5px;
-	text-align: left;
+    margin-right: 20px;
+    margin-top: 5px;
+    text-align: left;
 }
 </style>
 
+<form action="" method="post" id="j_cadastroForm">
 
-<p>
-		<strong class="title">Dados do Usuário</strong>
-	</p>
-	<div class="box_borda">
-		<div class="paddingAll">
-			<ul>
-				<input type="hidden" name="coSeqDadocadastrante" id="coSeqDadocadastrante" value="{{ entityData.coSeqDadocadastrante }}">
-				
-				<li><label class="row span3" for="noCadastrante"> Nome
-						completo:
-				</label> <input readonly type="text" name="noCadastrante" id="noCadastrante"
-					class="span4" value="{{ entityData.noCadastrante }}" required
-					size="150" maxlength="100" /></li>
-				<li><label class="row span3" for="dsEnderecowebCadastrante">
-						E-mail:
-				</label> <input readonly type="text" name="dsEnderecowebCadastrante"
-					id="dsEnderecowebCadastrante" class="span4"
-					value="{{ entityData.dsEnderecowebCadastrante }}" required
-					size="150" /></li>
-				<li><label class="row span3" for="noIdentificadorMaquina">
-						Máquina:
-				</label> <input type="text" name="noIdentificadorMaquina"
-					id="noIdentificadorMaquina" class="span4"
-					value=""
-					required /></li>
-				<li><label class="row span3" for="dtInclusao">
-						Data Inclusão: <font color="red"><b>*</b></font>
-				</label> <input type="text" name="dtInclusao"
-					id="dtInclusao" readonly class="span4"
-					value="{%  if entityData.dtInclusao is not null  %}{{ entityData.dtInclusao | date('d/m/Y') }}{% endif %}"
-					required /></li>
-			</ul>
-			<div class="pull-right">
-				<a href="{{ path('sansis_core_sandbox_homepage') }}" id="voltarBt" class="btn btn-primary">Voltar</a>
-			</div>
-		</div>
-	</div>
+<strong class="title">Dados do Usuário</strong>
+
+<div class="box_borda">
+    <div class="paddingAll">
+        <div class="span11">
+	        <ul>
+	            <li>
+	                <label class="row span3" for="noCadastrante">Nome completo:</label>
+	                <input readonly type="text" name="noCadastrante" id="noCadastrante" class="span4" value="{{ entityData.noCadastrante }}" required size="150" maxlength="100" /></li>
+	            <li>
+	                <label class="row span3" for="dsEnderecowebCadastrante">E-mail:</label>
+	                <input readonly type="text" name="dsEnderecowebCadastrante" id="dsEnderecowebCadastrante" class="span4" value="{{ entityData.dsEnderecowebCadastrante }}" required size="150" />
+	            </li>
+	            <li>
+	                <label class="row span3" for="noIdentificadorMaquina">Máquina:</label>
+	                <input readonly type="text" name="noIdentificadorMaquina" id="noIdentificadorMaquina" class="span4" value="" required /></li>
+	            <li>
+	                <label class="row span3" for="dtInclusao">Data Inclusão: <font color="red"><b>*</b></font></label>
+	                <input type="text" name="dtInclusao" id="dtInclusao" readonly class="span4" value="{%  if entityData.dtInclusao is not null  %}{{ entityData.dtInclusao | date('d/m/Y') }}{% endif %}" required />
+	            </li>
+            </ul>
+            <div class="pull-right">
+                <a href="{{ path('sansis_core_sandbox_homepage') }}" id="voltarBt" class="btn btn-primary">Voltar</a>
+	        </div>
+        </div>
+    </div>
+</div>
+
+</form>
+
 {% endblock %}
