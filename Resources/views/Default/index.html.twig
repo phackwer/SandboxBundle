@@ -14,14 +14,14 @@
 				<li class="span8">
 	                <label for="nome">Nome:</label>
 	                <input id="nome" type="text" name="Nome" class="span8"></li>
-	            <li class="span2 pull-right">
+	            <li class="span2">
 	                <label>&nbsp;</label>
 	                <a href="#" id="searchBt" class="btn btn-primary">Pesquisar</a>
 	                <a href="#" id="clearBt" class="btn">Limpar</a>
 	            </li>
 			</ul>
 	
-			<div class="box marginBottom">
+			<div class="span10 marginBottom">
 				<table id="grid"></table>
 				<div id="pager"></div>
 			</div>
@@ -55,7 +55,8 @@
              forceFit:true,
              hidegrid: false,
              height: '254',
-             width: '1025',
+             autowidth: true,
+             shrinkToFit: true,
              pager: '#pager',
              viewrecords: true,
              sortname: 'g.noCadastrante',
